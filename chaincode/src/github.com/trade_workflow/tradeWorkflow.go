@@ -248,10 +248,10 @@ func (t *TradeWorkflowChaincode) acceptTrade(stub shim.ChaincodeStubInterface, c
 		return shim.Error(err.Error())
 	}
 
-	if tradeAgreement.Status == ACCEPTED {
+	if tradeAgreement.Status == "ACCEPTED" {
 		fmt.Printf("Trade %s already accepted", args[0])
 	} else {
-		tradeAgreement.Status = ACCEPTED
+		tradeAgreement.Status = "ACCEPTED"
 		tradeAgreementBytes, err = json.Marshal(tradeAgreement)
 		if err != nil {
 			return shim.Error("Error marshaling trade agreement structure")
